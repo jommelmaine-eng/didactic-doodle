@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My App</title>
+<style>
+body{
+font-family:Arial;
+text-align:center;
+padding-top:50px;
+background:#111;
+color:white;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff0000;
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>HELLO WORLD</h1>
+<p>MY FREE WEBSITE APP</p>
+
+<button onclick="downloadHTML()">
+WEBSITE
+</button>
+
+<script>
+function downloadHTML(){
+
+alert("You clicked the button download the html!");
+
+const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+<title>Downloaded HTML</title>
+</head>
+
+<body>
+<h1>DOWNLOADED HTML FILE</h1>
+<p>Hello from downloaded file!</p>
+</body>
+</html>
+`;
+
+const blob = new Blob([htmlContent], {type:"text/html"});
+
+const a = document.createElement("a");
+a.href = URL.createObjectURL(blob);
+a.download = "mywebsite.html";
+a.click();
+
+}
+</script>
+
+</body>
+</html>
